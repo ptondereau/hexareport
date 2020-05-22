@@ -30,3 +30,19 @@ services:
 
     App\Domain\Shared\Bus\Query\QueryBusInterface: '@App\Infrastructure\Shared\Bus\Query\MessengerQueryBus'
     App\Domain\Shared\Bus\Command\CommandBusInterface: '@App\Infrastructure\Shared\Bus\Command\MessengerCommandBus'
+
+    # Handlers
+
+    command_handlers:
+        namespace: App\Application\Report\Command\
+        resource: '%kernel.project_dir%/src/Application/Report/Command/**/*CommandHandler.php'
+        autoconfigure: false
+        tags:
+            - { name: messenger.message_handler, bus: command.bus }
+
+    query_handlers:
+        namespace: App\Application\Report\Query\
+        resource: '%kernel.project_dir%/src/Application/Report/Query/**/*QueryHandler.php'
+        autoconfigure: false
+        tags:
+            - { name: messenger.message_handler, bus: query.bus }

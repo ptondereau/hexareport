@@ -7,7 +7,9 @@ namespace App\Domain\Report\Repository;
 use App\Domain\Report\Model\Report;
 use App\Domain\Report\ValueObjects\ReportId;
 
-interface FindByIdInterface
+interface ReportRepositoryInterface
 {
-    public function findById(ReportId $id): ?Report;
+    public function get(ReportId $id): Report;
+
+    public function save(Report $report): void;
 }

@@ -6,7 +6,6 @@ namespace App\Infrastructure\Shared\Bus\Query;
 
 use App\Domain\Shared\Bus\Query\QueryBusInterface;
 use App\Domain\Shared\Bus\Query\QueryInterface;
-use App\Domain\Shared\Bus\Query\Response;
 use Symfony\Component\Messenger\Exception\NoHandlerForMessageException;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Messenger\Stamp\HandledStamp;
@@ -20,7 +19,7 @@ class MessengerQueryBus implements QueryBusInterface
         $this->queryBus = $queryBus;
     }
 
-    public function ask(QueryInterface $query): ?Response
+    public function ask(QueryInterface $query)
     {
         try {
             /** @var HandledStamp $stamp */

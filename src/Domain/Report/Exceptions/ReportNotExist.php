@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Domain\Report;
+namespace App\Domain\Report\Exceptions;
 
 use App\Domain\Report\ValueObjects\ReportId;
-use App\Domain\Shared\DomainError;
+use App\Domain\Shared\Exceptions\DomainError;
 
 final class ReportNotExist extends DomainError
 {
