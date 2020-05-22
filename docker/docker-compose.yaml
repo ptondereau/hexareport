@@ -1,4 +1,4 @@
-version: "3.7"
+version: '3.7'
 
 services:
     nginx:
@@ -21,4 +21,4 @@ services:
         command: --default-authentication-plugin=mysql_native_password
         environment:
             - MYSQL_ROOT_PASSWORD=root
-            - MYSQL_DATABASE=reporkeeper
+            - MYSQL_DATABASE=hexareport

@@ -12,17 +12,17 @@ use Symfony\Component\Messenger\MessageBusInterface;
 
 final class MessengerCommandBus implements CommandBusInterface
 {
-    private MessageBusInterface $bus;
+    private MessageBusInterface $commandBus;
 
-    public function __construct(MessageBusInterface $bus)
+    public function __construct(MessageBusInterface $commandBus)
     {
-        $this->bus = $bus;
+        $this->commandBus = $commandBus;
     }
 
     public function dispatch(CommandInterface $command): void
     {
         try {
-            $this->bus->dispatch($command);
+            $this->commandBus->dispatch($command);
         } catch (NoHandlerForMessageException $unused) {
             throw new CommandNotRegisteredError($command);
         } catch (HandlerFailedException $error) {

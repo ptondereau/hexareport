@@ -16,48 +16,36 @@ final class Report
 
     private Description $description;
 
-    public function __construct(ReportId $id, Title $title, Description $description)
-    {
+    private \DateTimeImmutable $createdAt;
+
+    private function __construct(
+        ReportId $id,
+        Title $title,
+        Description $description
+    ) {
         $this->id = $id;
         $this->title = $title;
         $this->description = $description;
+        $this->createdAt = new \DateTimeImmutable();
     }
 
-    public static function create(Title $title, Description $description): self
-    {
-        return new self(ReportId::random(), $title, $description);
+    public static function create(
+        ReportId $id,
+        Title $title,
+        Description $description
+    ): self {
+        return new self($id, $title, $description);
     }
 
-    public static function fromPrimitives(string $id, string $title, string $description): self
-    {
+    public static function fromPrimitives(
+        string $id,
+        string $title,
+        string $description
+    ): self {
         return new self(
             new ReportId($id),
             new Title($title),
-            new Description($description)
+            new Description($description),
         );
-    }
-
-    public function id(): ReportId
-    {
-        return $this->id;
-    }
-
-    public function title(): Title
-    {
-        return $this->title;
-    }
-
-    public function description(): Description
-    {
-        return $this->description;
-    }
-
-    public function toArray(): array
-    {
-        return [
-            'id' => $this->id->value(),
-            'title' => $this->title->value(),
-            'description' => $this->description->value(),
-        ];
     }
 }

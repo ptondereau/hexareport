@@ -50,7 +50,7 @@
         "post-update-cmd": [
             "@auto-scripts"
         ],
-        "cs:fix": "ecs check src --fix"
+        "cs:fix": ["yarn prettier --write .", "ecs check src --fix"]
     },
     "conflict": {
         "symfony/symfony": "*"

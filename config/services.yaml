@@ -8,7 +8,7 @@ parameters:
 services:
     # default configuration for services in *this* file
     _defaults:
-        autowire: true      # Automatically injects dependencies in your services.
+        autowire: true # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
 
     App\:
@@ -18,3 +18,15 @@ services:
     App\UI\Http\Controllers\:
         resource: '../src/UI/Http/Controllers'
         tags: ['controller.service_arguments']
+
+    # Buses
+    App\Infrastructure\Shared\Bus\Query\MessengerQueryBus:
+        arguments:
+            $queryBus: '@query.bus'
+
+    App\Infrastructure\Shared\Bus\Command\MessengerCommandBus:
+        arguments:
+            $commandBus: '@command.bus'
+
+    App\Domain\Shared\Bus\Query\QueryBusInterface: '@App\Infrastructure\Shared\Bus\Query\MessengerQueryBus'
+    App\Domain\Shared\Bus\Command\CommandBusInterface: '@App\Infrastructure\Shared\Bus\Command\MessengerCommandBus'

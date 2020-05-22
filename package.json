@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "cs:fix": "yarn prettier --write . && vendor/bin/ecs check src --fix"
+  },
+  "devDependencies": {
+    "@prettier/plugin-php": "^0.14.1",
+    "@prettier/plugin-xml": "^0.7.2",
+    "prettier": "^2.0.5"
+  }
+}

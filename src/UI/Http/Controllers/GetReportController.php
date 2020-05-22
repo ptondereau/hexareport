@@ -23,7 +23,7 @@ class GetReportController
         $this->queryBus = $queryBus;
     }
 
-    public function __invoke(int $id): Response
+    public function __invoke(string $id): Response
     {
         /** @var ReportResponse $response */
         $response = $this->queryBus->ask(new FindReportQuery($id));

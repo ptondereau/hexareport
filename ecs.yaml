@@ -1,13 +1,13 @@
 # https://github.com/symplify/easy-coding-standard
 imports:
     - {
-        resource: "vendor/sylius-labs/coding-standard/easy-coding-standard.yml",
-    }
+          resource: 'vendor/sylius-labs/coding-standard/easy-coding-standard.yml',
+      }
 
 services:
     PhpCsFixer\Fixer\FunctionNotation\NativeFunctionInvocationFixer: ~
 
 parameters:
     exclude_files:
-        - "**/var/*"
-        - "src/**/*.gitkeep"
+        - '**/var/*'
+        - 'src/**/*.gitkeep'

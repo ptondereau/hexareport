@@ -1,16 +1,16 @@
-version: "3.7"
+version: '3.7'
 
 services:
     nginx:
         ports:
-            - "80:80"
+            - '80:80'
     php:
         ports:
-            - "2323:22"
+            - '2323:22'
 
     mysql:
         ports:
-            - "3306:3306"
+            - '3306:3306'
         volumes:
             - db_data:/var/lib/mysql
 

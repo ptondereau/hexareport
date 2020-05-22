@@ -1,0 +1,12 @@
+vendor/**/*
+var/**/*
+composer.json
+composer.lock
+symfony.lock
+Makefile
+.env
+.env.*
+bin/console
+.idea/**/*
+package.json
+yarn.lock

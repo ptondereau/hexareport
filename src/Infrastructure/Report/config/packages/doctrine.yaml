@@ -1,0 +1,13 @@
+doctrine:
+    dbal:
+        types:
+            report_id: 'App\Infrastructure\Report\Doctrine\Types\ReportId'
+            title: 'App\Infrastructure\Report\Doctrine\Types\Title'
+            description: 'App\Infrastructure\Report\Doctrine\Types\Description'
+
+    orm:
+        mappings:
+            Report:
+                type: xml
+                dir: '%kernel.project_dir%/src/Infrastructure/Report/Doctrine/Mapping'
+                prefix: App\Domain\Report\Model
