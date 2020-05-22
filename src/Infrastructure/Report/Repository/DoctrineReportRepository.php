@@ -20,7 +20,7 @@ final class DoctrineReportRepository extends ServiceEntityRepository implements 
 
     public function get(ReportId $id): Report
     {
-        /** @var null|Report $report */
+        /** @var Report|null $report */
         $report = $this->find($id->value());
 
         if (null === $report) {

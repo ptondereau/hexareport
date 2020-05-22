@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\UI\CLI\Command;
 
 use App\Application\Report\Query\Find\FindReportQuery;
@@ -21,14 +23,15 @@ final class GetReportCommand extends Command
 
     protected function configure(): void
     {
-        $this
-            ->setName('report:get')
+        $this->setName('report:get')
             ->setDescription('Get report by ID.')
             ->addArgument('id', InputArgument::REQUIRED, 'Report id');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
-    {
+    protected function execute(
+        InputInterface $input,
+        OutputInterface $output
+    ): int {
         $id = $input->getArgument('id');
 
         $response = $this->queryBus->ask(new FindReportQuery($id));

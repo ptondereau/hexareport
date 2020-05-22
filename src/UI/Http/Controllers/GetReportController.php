@@ -37,8 +37,8 @@ class GetReportController
                 'id' => $response->id,
                 'title' => $response->title,
                 'description' => $response->description,
-                'created_at' =>  $response->created_at
-            ]
+                'created_at' => $response->created_at,
+            ],
         ]);
     }
 }

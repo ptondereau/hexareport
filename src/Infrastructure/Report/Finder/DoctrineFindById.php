@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Infrastructure\Report\Finder;
 
 use App\Domain\Report\Exceptions\ReportNotExist;
@@ -20,13 +22,9 @@ final class DoctrineFindById implements FindByIdInterface
 
     public function findById(ReportId $id): ReportView
     {
-        $stmt = $this->connection->createQueryBuilder()
-            ->select(
-                'id',
-                'title',
-                'description',
-                'created_at'
-            )
+        $stmt = $this->connection
+            ->createQueryBuilder()
+            ->select('id', 'title', 'description', 'created_at')
             ->from('reports')
             ->where('id = :id')
             ->setParameter(':id', $id->value())
