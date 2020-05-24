@@ -22,11 +22,11 @@ services:
     # Buses
     App\Infrastructure\Shared\Bus\Query\MessengerQueryBus:
         arguments:
-            $queryBus: '@query.bus'
+            $messageBus: '@query.bus'
 
     App\Infrastructure\Shared\Bus\Command\MessengerCommandBus:
         arguments:
-            $commandBus: '@command.bus'
+            $messageBus: '@command.bus'
 
     App\Domain\Shared\Bus\Query\QueryBusInterface: '@App\Infrastructure\Shared\Bus\Query\MessengerQueryBus'
     App\Domain\Shared\Bus\Command\CommandBusInterface: '@App\Infrastructure\Shared\Bus\Command\MessengerCommandBus'

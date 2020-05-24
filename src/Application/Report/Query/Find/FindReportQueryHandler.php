@@ -6,9 +6,9 @@ namespace App\Application\Report\Query\Find;
 
 use App\Domain\Report\Finder\FindByIdInterface;
 use App\Domain\Report\ViewModel\ReportView;
-use App\Domain\Shared\Bus\Query\QueryHandlerInterface;
+use App\Infrastructure\Shared\Bus\Query\AbstractMessengerQueryHandler;
 
-final class FindReportQueryHandler implements QueryHandlerInterface
+final class FindReportQueryHandler extends AbstractMessengerQueryHandler
 {
     private FindByIdInterface $finder;
 
@@ -20,5 +20,10 @@ final class FindReportQueryHandler implements QueryHandlerInterface
     public function __invoke(FindReportQuery $command): ReportView
     {
         return $this->finder->findById($command->id());
+    }
+
+    public static function getHandledMessages(): iterable
+    {
+        yield FindReportQuery::class;
     }
 }
