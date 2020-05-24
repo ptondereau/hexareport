@@ -15,7 +15,7 @@ class ReportId extends UuidType
 
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
     {
-        return $value instanceof DomainReportId ? $value->toString() : $value;
+        return $value instanceof DomainReportId ? (string) $value : $value;
     }
 
     public function convertToPHPValue($value, AbstractPlatform $platform)

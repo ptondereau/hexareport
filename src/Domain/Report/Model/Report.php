@@ -37,6 +37,11 @@ final class Report
         return new self($id, $title, $description);
     }
 
+    public function changeTitle(Title $title): void
+    {
+        $this->title = $title;
+    }
+
     public static function fromPrimitives(
         string $id,
         string $title,
